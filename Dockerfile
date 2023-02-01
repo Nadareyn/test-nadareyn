@@ -1,13 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0-alpine
 
-RUN echo $PATH
-
-ENV PATH="$PATH:/toto"
-
-RUN echo $PATH
-
-ENV PATH="$PATH:/titi"
-
-RUN echo $PATH
+RUN dotnet tool install dotnet-sonarscanner --tool-path /usr/bin 
+RUN apk update
+RUN apk add openjdk17
 
 ENTRYPOINT ["sh"]
